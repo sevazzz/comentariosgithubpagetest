@@ -25,11 +25,66 @@
             box-shadow: 0px 5px 15px rgba(3, 18, 29, 0.4);  
         }
 
+        /*ESTILO DE MIS LOGOS*/
+        .filaimagenes {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            width: 100%;
+            padding: 10px  80px;
+            box-sizing: border-box;
+        }
+
+        .logo-left {
+            height: 100px;
+            width: auto;
+            justify-self: start;
+            filter: drop-shadow(0px 0px 10px rgb(7, 33, 58));
+        }
+
+
+        .logo-right {
+            height: 120px;
+            width: auto;
+            justify-self: end;
+            filter: drop-shadow(0px 0px 10px rgb(7, 33, 58));
+        }
+
+/*-----------------------------------------------------------------------------*/
+
+        /*ADPATACIÓN*/
+        @media (max-width: 670px) {
+    .filaimagenes {
+        grid-template-columns: 1fr; 
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .logo-left, .logo-right {
+        height: 70px; 
+        justify-self: center; 
+    }
+
+    .titulo h1 {
+        font-size: 1.5rem; 
+        text-align: center;
+        white-space: normal; 
+    }
+
+    .titulo {
+        padding: 20px 10px;
+    }
+} 
+
+/*-----------------------------------------------------------------------------*/
+
         /*Estilo del texto del título*/
         .titulo h1 {
-            margin: 0 0 10px 0;   
-            text-shadow: 0px 2px 10px rgba(135, 135, 145, 0.5);
+            text-shadow: 0px 2px 10px rgba(135, 135, 145, 0.726);
             font-size: 2rem;
+            justify-self: center;
+            margin: 0;
+            white-space: nowrap;
         }
 
         .titulo h4 {
@@ -180,7 +235,14 @@
 <body>
 
 <header class="titulo">
+    <div class="filaimagenes">
+    <img src="img/logo-unab.png" alt="UNAB" class="logo-header logo-left">
+
     <h1> 🙋‍♀️ ¡OPINIÓN ALUMNOS! 🙋‍♂️ </h1>
+
+    <img src="img/logo-facultad.png" alt="Facultad" class="logo-header logo-right">
+</div>
+
     <h4>Apartado de comentarios para calificar nuestra exposición del tema "Virtualización de Servidores en la Nube".</h4>
 </header>
 
