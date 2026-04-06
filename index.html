@@ -1,203 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CALIFICA NUESTRA PRESENTACIÓN</title>
-</head>
+    <style>
+        /*Estilo de mi cuerpo, color, centrado y tamaño de pantalla*/
+        body { 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<style>
+        /*Estilo de mi encabezado*/
+        .titulo {
+            background-color: #0a0422;
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            box-shadow: 0px 5px 15px rgba(3, 18, 29, 0.4);  
+        }
 
-/*Estilo de mi cuerpo, color, centrado y tamaño de pantalla*/
-body { 
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(255, 255, 255);    
-}
+        /*Estilo del texto del título*/
+        .titulo h1 {
+            margin: 0 0 10px 0;   
+            text-shadow: 0px 2px 10px rgba(135, 135, 145, 0.5);
+            font-size: 2rem;
+        }
 
-/*Estilo de mi encabezado*/
-    .titulo
-    {
-        background-color: #0a0422;
-        text-align: center;
-        align-content: center;
-        width: 100%;
-        height: 15vh;
-        color: white;
-        box-shadow: 0px 5px 15px rgb(3, 18, 29);  
-      
-    }
-/*Estilo del texto del título*/
-    .titulo h1 {
-        margin: 0;   
-        text-shadow:0px 2px 10px rgb(135, 135, 145);
-    }
+        .titulo h4 {
+            margin: 0;
+            font-weight: 300;
+            opacity: 0.9;
+        }
 
-    /*Estilo del formulario*/
-    .contenedordelformulario {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+        /*Estilo del formulario*/
+        .contenedordelformulario {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
 
-    height: calc(65vh - 100px);
-    }
+        /*Separador del formulario con el titulo*/
+        .contenedordelformulario h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
 
- /*Separador del formulario con el titulo*/
-    .contenedordelformulario h3 {
-        margin-top: -20px;
-    }
+        /*Estilo de la etiqueta form, en la cual centro texto, elementos, cambio color y doy sombra al cuadro*/
+        form {
+            background-color: #1a1a2e;
+            text-align: center;
+            width: 100%;
+            max-width: 500px; 
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);  
+        }
 
-    /*Estilo de la etiqueta form, en la cual centro texto, elementos, cambio color y doy sombra al cuadro*/
-    form
-    {
-        background-color: hwb(229 4% 83%);
-        text-align: center;
-        align-content: center;
-        width: 90vw;
-        max-width: 600px; 
-        color: white;
-        padding: 35px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 5px 15px rgb(5, 25, 36);  
-    }
+        /*Estilos de los campos de nombre, comentaios y reseña*/
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-sizing: border-box;
+            font-size: 1rem;
+            background-color: white;
+        }
 
-    /*Estilos de los campos de nombre, comentaios y reseña*/
-     input, select, textarea {
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        input[type="range"] {
+            accent-color: #00a0c8;
+            margin: 10px 0;
+            padding: 0;
+        }
+
+        #porcentajedecalificacion {
+            display: block;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /*Estilo del boton de "enviar"*/
+        button {
+            margin-top: 10px;
+            padding: 14px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            background: #00a0c8;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #008eb3;
+        }
+
+        /*Estilo de la tarjeta donde estan los comentartios*/
+        .card {
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            line-height: 1.6;
+            word-wrap: break-word;        
+            overflow-wrap: break-word;   
+            white-space: normal;          
+        }
         
-        width: 100%;
-        padding: 10px;
-        margin-top: 10px;
-        border-radius: 5px;
-        border: none;
-        box-sizing: border-box;
-        resize: none;
-     }
+        /*Estilo de las reseñas, segun la calificación su color*/
+        .Mala { background: #e74c3c; }
+        .Buena { background: #f1c40f; color: #333; }
+        .Excelente { background: #27ae60; }
 
-     input[type="range"] {
-        accent-color: #ffffff;
-        margin-top: 15px;
-     }
+        /*listado de comentarios*/
+        h2, #lista {
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-     /*Estilo del boton de "enviar"*/
-     button {
-        margin-top: 15px;
-        padding: 10px;
-        width: 100%;
-        border: none;
-        border-radius: 5px;
-        background: #00a0c8;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-    }
+        /*"LISTA DE COMENTARIOS"*/
+        h2 {
+            text-align: center;
+            margin: 20px auto;
+        }
 
-    /*Estilo de la tarjeta donde estan los comentartios*/
-     .card {
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 8px;
-    word-wrap: break-word;       
-    overflow-wrap: break-word;   
-    white-space: normal;         
-}
-     
-    /*Estilo de las reseñas, segun la calificación su color*/
-    .Mala { background: #c91616; }
-    .Buena { background: #f9d925; }
-    .Excelente { background: #12941b; }
+        #lista {
+            margin-bottom: 60px;
+        }
 
-    /*listado de comentarios*/
-    h2, #lista {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
+        /*FOOTER*/
+        .piedepagina {
+            background: #0a0422;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: auto;
+            box-shadow: 0px -5px 15px rgba(0,0,0,0.3);
+        }
 
-/*"LISTA DE COMENTARIOS"*/
-    h2 {
-        text-align: center;
-        margin-top: -30px;
-    }
+        .piedepagina ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
 
-    #lista {
-    margin-bottom: 40px;
-    }
+        .piedepagina li {
+            margin: 5px 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
 
-    /*FOOTER*/
-  .piedepagina {
-    background: #0a0422;
-    color: #fff;
-    text-align: center;
-    padding: 25px ;
-    margin-top: auto;
-    box-shadow: 0px -5px 15px rgba(0,0,0,0.5);
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
+        .piedepagina h4 {
+            margin-top: 20px;
+            color: #00a0c8;
+        }
+    </style>
+</head>
+<body>
 
-.piedepagina ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-</style>
-    
-<!--Este es el encabezado-->
-<div class="titulo">
+<header class="titulo">
     <h1> 🙋‍♀️ ¡OPINIÓN ALUMNOS! 🙋‍♂️ </h1>
-    <h4 style="font-family: sans-serif;">Apartado de comentarios para calificar nuestra exposición del tema "Virtualización de Servidores en la Nube".</h4>
-</div>
+    <h4>Apartado de comentarios para calificar nuestra exposición del tema "Virtualización de Servidores en la Nube".</h4>
+</header>
 
-<!--Contenedor del forumalario, en la cual incluye: nombre, reseña, comentario y calificacion-->
-<div class="contenedordelformulario">
-
+<main class="contenedordelformulario">
     <form id="Formulario">
+        <h3>📝 ESCRIBE TU RESEÑA </h3>
 
-        <h3 style="color: white;">📝 ESCRIBE TU RESEÑA </h3>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
 
-    <!--nombre-->
-    <input type="text" id="nombre" name="nombre" placeholder="Escriba su nombre">
+        <select id="opinion">
+            <option value="Mala">Mala Exposición</option>
+            <option value="Buena" selected>Buena Exposición</option>
+            <option value="Excelente">Excelente Exposición</option>
+        </select>
 
-    <!--reseña-->
-    <select id="opinion">
-        <option value="Mala">Mala Exposición</option>
-        <option value="Buena">Buena Exposición</option>
-        <option value="Excelente">Excelente Exposición</option>
-    </select>
+        <textarea id="comentarios" placeholder="¿Qué te pareció la presentación?" required></textarea>
 
-    <!--comentarios-->
-        <textarea id="comentarios" placeholder="Escriba su comentario..." required></textarea>
-
-    <!--calificación mediante rango de porcentaje-->
-        <input type="range" id="calificacion" min="0" max="100" value="10" >
+        <label for="calificacion" style="font-size: 0.9rem; opacity: 0.8;">Tu calificación final:</label>
+        <input type="range" id="calificacion" min="0" max="100" value="10">
         <span id="porcentajedecalificacion">10%</span>
 
-    <!--botón de enviar-->
         <button type="submit">Enviar Reseña</button>
     </form>
-
-</div>
+</main>
 
 <h2 style="color: #0a0422;">📋 Lista de comentarios </h2>
 
-<!--contenedor de mi lista de comentarios-->
-    <div id="lista"></div>
+<section id="lista"></section>
 
 <script>
+    /*Animación de porcentaje*/
+    const calificacionRange = document.getElementById('calificacion');
+    const salida = document.getElementById('porcentajedecalificacion');
 
-   /*Animación de porcentaje*/
-  const calificacion = document.getElementById('calificacion');
-  const salida = document.getElementById('porcentajedecalificacion');
+    calificacionRange.addEventListener('input', function() {
+        salida.textContent = this.value + '%';
+    });
 
-  calificacion.addEventListener('input', function() {
-    salida.textContent = this.value + '%';
-     });
-
-     /*-------------------------------------------------------------------------------*/
+    /*-------------------------------------------------------------------------------*/
     let comentarios = [];
     document.getElementById("Formulario").addEventListener("submit", function(e) {
         e.preventDefault();
@@ -205,14 +227,14 @@ body {
         let nombre = document.getElementById("nombre").value;
         let opinion = document.getElementById("opinion").value;
         let comentariosInput = document.getElementById("comentarios").value;
-        let calificacion = document.getElementById("calificacion").value;
+        let valorCalificacion = document.getElementById("calificacion").value;
 
         /*objeto donde se encapsula el comentario, con el nombre, tipo de opinion, su comentario y su respectiva calificación*/
         let comentarioagregado = {
             nombre: nombre,
             opinion: opinion,
             comentario: comentariosInput,
-            calificacion: calificacion,
+            calificacion: valorCalificacion,
         };
 
         comentarios.push(comentarioagregado);
@@ -220,7 +242,7 @@ body {
 
         //-----------------------------------------------------------
         //GUARDAR LOS COMENTARIOS EN GOOGLE SHEETS
-    const url_script = "https://script.google.com/macros/s/AKfycbzC-QTbJs0N15Q_HHJICZS2NvA4OsBf0HH683wm9wDYr-q_9zjiQjWlJjQGn_MXx96hOA/exec";
+        const url_script = "https://script.google.com/macros/s/AKfycbzC-QTbJs0N15Q_HHJICZS2NvA4OsBf0HH683wm9wDYr-q_9zjiQjWlJjQGn_MXx96hOA/exec";
 
         fetch(url_script, {
             method: "POST",
@@ -228,52 +250,44 @@ body {
             headers: {
                 "Content-Type": "application/json"
             },
-
             body: JSON.stringify(comentarioagregado)
         })
-
         .then(() => {
             alert("¡GRACIAS POR TU RESEÑA! ✅");
         })
-
         .catch(error => {
             console.error("Error:", error);
-            alert("ERROR EN ENVIAR RESEÑA.");
+            alert("ERROR AL ENVIAR RESEÑA.");
         });
 
         this.reset();
         salida.textContent = "10%"; 
     });
-//--------------------------------------------------------------
+    //--------------------------------------------------------------
 
     function mostrarComentarios() {
         const lista = document.getElementById("lista");
         lista.innerHTML = "";
 
-        comentarios.forEach((c)=> {
-
-        /*Por cada comentario se crea un div*/
+        comentarios.forEach((c) => {
+            /*Por cada comentario se crea un div*/
             let div = document.createElement("div");
 
-        /*le agrega el diseño al comentaro*/
-           div.classList.add("card", c.opinion);
-
+            /*le agrega el diseño al comentaro*/
+            div.classList.add("card", c.opinion);
 
             div.innerHTML = `
-            <strong>${c.nombre}</strong><br>
-            <strong>Opinion:</strong> ${c.opinion}<br>
-            <strong>Comentario:</strong> ${c.comentario}<br>
-            <strong>CALIFICACIÓN:</strong>⭐ ${c.calificacion}<br>
+                <strong>👤 ${c.nombre}</strong><br>
+                <strong>📌 Opinión:</strong> ${c.opinion}<br>
+                <strong>💬 Comentario:</strong> ${c.comentario}<br>
+                <strong>⭐ Calificación:</strong> ${c.calificacion}%
             `;
 
             /*Se agrega el comentario al contendero de comentarios y se muestra*/
             lista.appendChild(div);
         });
     }
-
 /*GUARDAR COMENTARIOS*/
-
- 
 </script>
 
 <footer class="piedepagina">
@@ -283,7 +297,8 @@ body {
         <li>Jaime Fernando Berrios Ortiz</li>
         <li>Rafael Atilio Umaña Majano</li>
     </ul>
-<h4>¡GRACIAS POR SUS COMENTARIOS EN NUESTRA EXPOSICIÓN!</h4>
+    <h4>¡GRACIAS POR SUS COMENTARIOS EN NUESTRA EXPOSICIÓN!</h4>
 </footer>
+
 </body>
 </html>
