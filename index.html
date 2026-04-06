@@ -95,7 +95,7 @@ body {
         cursor: pointer;
     }
 
-    /*Estilo de la tarjeta donde estaN los comentartios*/
+    /*Estilo de la tarjeta donde estan los comentartios*/
      .card {
     padding: 15px;
     margin-top: 10px;
@@ -116,6 +116,8 @@ body {
     max-width: 600px;
     margin: 0 auto;
 }
+
+/*"LISTA DE COMENTARIOS"*/
     h2 {
         text-align: center;
         margin-top: -30px;
@@ -125,25 +127,15 @@ body {
     margin-bottom: 40px;
     }
 
+    /*FOOTER*/
   .piedepagina {
     background: #0a0422;
     color: #fff;
     text-align: center;
-
-    padding: 25px 15px;
+    padding: 25px ;
     margin-top: auto;
-
     box-shadow: 0px -5px 15px rgba(0,0,0,0.5);
     border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Título */
-.piedepagina {
-    background: #0a0422;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto;
 }
 
 .piedepagina ul {
@@ -152,7 +144,6 @@ body {
     margin: 0;
 }
 
-/*comentarios*/
 </style>
     
 <!--Este es el encabezado-->
@@ -181,7 +172,7 @@ body {
     <!--comentarios-->
         <textarea id="comentarios" placeholder="Escriba su comentario..." required></textarea>
 
-    <!--calificación mediante rnago de porcentaje-->
+    <!--calificación mediante rango de porcentaje-->
         <input type="range" id="calificacion" min="0" max="100" value="10" >
         <span id="porcentajedecalificacion">10%</span>
 
@@ -228,7 +219,7 @@ body {
         mostrarComentarios();
 
         //-----------------------------------------------------------
-        //GUARDAR COMENTARIO EN GOOGLE SHEET
+        //GUARDAR LOS COMENTARIOS EN GOOGLE SHEETS
     const url_script = "https://script.google.com/macros/s/AKfycbzC-QTbJs0N15Q_HHJICZS2NvA4OsBf0HH683wm9wDYr-q_9zjiQjWlJjQGn_MXx96hOA/exec";
 
         fetch(url_script, {
@@ -237,11 +228,14 @@ body {
             headers: {
                 "Content-Type": "application/json"
             },
+
             body: JSON.stringify(comentarioagregado)
         })
+
         .then(() => {
             alert("¡GRACIAS POR TU RESEÑA! ✅");
         })
+
         .catch(error => {
             console.error("Error:", error);
             alert("ERROR EN ENVIAR RESEÑA.");
