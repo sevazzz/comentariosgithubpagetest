@@ -7,6 +7,7 @@
     <style>
         /*Estilo de mi cuerpo, color, centrado y tamaño de pantalla*/
         body { 
+            overflow-X: hidden;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -25,66 +26,57 @@
             box-shadow: 0px 5px 15px rgba(3, 18, 29, 0.4);  
         }
 
-        /*ESTILO DE MIS LOGOS*/
-        .filaimagenes {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            width: 100%;
-            padding: 10px  80px;
-            box-sizing: border-box;
-        }
+      /* ESTILO DE MIS LOGOS */
+.filaimagenes {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px; 
+    box-sizing: border-box;
+}
 
-        .logo-left {
-            height: 100px;
-            width: auto;
-            justify-self: start;
-            filter: drop-shadow(0px 0px 10px rgb(7, 33, 58));
-        }
+/* LOGO IZQUIERDO */
+.logo-left {
+    height: clamp(60px, 8vw, 100px);
+    width: auto;
+    justify-self: start;
+    filter: drop-shadow(0px 0px 10px rgb(7, 33, 58));
+}
 
+/* LOGO DERECHO */
+.logo-right {
+    height: clamp(60px, 8vw, 100px);
+    width: auto;
+    justify-self: end;
+    filter: drop-shadow(0px 0px 10px rgb(7, 33, 58));
+}
 
-        .logo-right {
-            height: 120px;
-            width: auto;
-            justify-self: end;
-            filter: drop-shadow(0px 0px 10px rgb(7, 33, 58));
-        }
-
-/*-----------------------------------------------------------------------------*/
-
-        /*ADPATACIÓN*/
-        @media (max-width: 670px) {
+/* -------------------- */
+/* ADAPTACIÓN*/
+@media (max-width: 770px) {
     .filaimagenes {
-        grid-template-columns: 1fr; 
-        padding: 20px;
-        gap: 15px;
-    }
-
-    .logo-left, .logo-right {
-        height: 70px; 
-        justify-self: center; 
-    }
-
-    .titulo h1 {
-        font-size: 1.5rem; 
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 10px;
         text-align: center;
-        white-space: normal; 
     }
 
-    .titulo {
-        padding: 20px 10px;
+    .logo-left,
+    .logo-right {
+        justify-self: center;
     }
-} 
+}
 
 /*-----------------------------------------------------------------------------*/
 
         /*Estilo del texto del título*/
         .titulo h1 {
             text-shadow: 0px 2px 10px rgba(135, 135, 145, 0.726);
-            font-size: 2rem;
-            justify-self: center;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            text-align: center;
             margin: 0;
-            white-space: nowrap;
+            white-space: normal;
         }
 
         .titulo h4 {
@@ -115,7 +107,7 @@
             width: 100%;
             max-width: 500px; 
             color: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);  
         }
